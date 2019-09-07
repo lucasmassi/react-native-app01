@@ -31,8 +31,6 @@ export default class Main extends Component {
     if (users) {
       this.setState({ users: JSON.parse(users) });
     }
-
-    console.tron.log(this.setState({ users: JSON.parse(users) }));
   }
 
   componentDidUpdate(_, prevState) {
@@ -62,8 +60,6 @@ export default class Main extends Component {
       newUser: '',
       loading: false,
     });
-
-    console.tron.log(await AsyncStorage.getItem('users'));
 
     Keyboard.dismiss();
   };
