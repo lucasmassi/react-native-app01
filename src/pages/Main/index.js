@@ -26,18 +26,20 @@ export default class Main extends Component {
   };
 
   async componentDidMount() {
-    const { users } = await AsyncStorage.getItem('users');
+    const users = await AsyncStorage.getItem('users');
 
     if (users) {
       this.setState({ users: JSON.parse(users) });
     }
+
+    console.tron.log(this.setState({ users: JSON.parse(users) }));
   }
 
   componentDidUpdate(_, prevState) {
     const { users } = this.state;
 
     if (prevState.users !== users) {
-      AsyncStorage.setItem('users', JSON.stringify());
+      AsyncStorage.setItem('users', JSON.stringify(users));
     }
   }
 
@@ -60,6 +62,8 @@ export default class Main extends Component {
       newUser: '',
       loading: false,
     });
+
+    console.tron.log(await AsyncStorage.getItem('users'));
 
     Keyboard.dismiss();
   };

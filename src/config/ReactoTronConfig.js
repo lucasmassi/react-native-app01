@@ -4,7 +4,7 @@ if (__DEV__) {
   const tron = Reactotron.configure({
     enable: true,
     port: 9090,
-    host: '192.168.112.13',
+    host: '192.168.0.90',
   })
     .useReactNative()
     .connect();
